@@ -1,6 +1,6 @@
 import React from 'react'
 import { injectIntl, defineMessages } from 'react-intl';
-import { NavDropdown, MenuItem, NavItem } from 'react-bootstrap'
+import { NavDropdown, Nav } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
 class AccountLoginMenuItemBase extends React.Component {
@@ -16,7 +16,7 @@ class AccountLoginMenuItemBase extends React.Component {
 
     return (
       <LinkContainer to="/login">
-        <MenuItem>{ formatMessage(messages.label) }</MenuItem>
+        <Nav.Link>{ formatMessage(messages.label) }</Nav.Link>
       </LinkContainer>
     )
   }
@@ -47,11 +47,11 @@ class AccountMenuMenuItemBase extends React.Component {
       <NavDropdown eventKey={1}
                    title={ formatMessage(messages.title) }
                    id="basic-nav-dropdown">
-        <MenuItem href="/admin/">{formatMessage(messages.admin)}</MenuItem>
-        <MenuItem divider />
-        <NavItem onClick={ this.props.authActions.logUserOut }>
+        <NavDropdown.Item href="/admin/">{formatMessage(messages.admin)}</NavDropdown.Item>
+        <NavDropdown.Item divider />
+        <NavDropdown.Item onClick={ this.props.authActions.logUserOut }>
           { formatMessage(messages.logout) }
-        </NavItem>
+        </NavDropdown.Item>
       </NavDropdown>
     )
   }

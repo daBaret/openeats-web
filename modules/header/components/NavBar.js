@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { injectIntl, defineMessages } from 'react-intl';
-import { Image, Navbar, Nav, NavItem } from 'react-bootstrap'
+import { Image, Navbar, Nav } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
 import { CreateRecipeMenuItem } from './CreateRecipeMenuItem'
 import { GroceryListMenuItem } from './GroceryListMenuItem'
 import { MenuMenuItem } from './MenuMenuItem'
 import { AccountMenuMenuItem, AccountLoginMenuItem } from './MyAccountMenuItem'
+
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -56,23 +57,21 @@ class NavBar extends React.Component {
     });
 
     return (
-      <Navbar collapseOnSelect>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <Link to="/">
-              <Image alt="Brand" src="/images/chef.png" responsive={ true } />
-            </Link>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
+      <Navbar collapseOnSelect bg="light" expand="lg">
+        <Navbar.Brand>
+          <Link to="/">
+            <Image alt="Brand" src="/images/chef.png" responsive={ true } />
+          </Link>
+        </Navbar.Brand>
+        <Navbar.Toggle />
         <Navbar.Collapse>
-          <Nav>
+          <Nav className="mr-auto">
             <LinkContainer to="/browse">
-              <NavItem>{formatMessage(messages.recipes)}</NavItem>
+              <Nav.Link>{formatMessage(messages.recipes)}</Nav.Link>
             </LinkContainer>
-            <NavItem onClick={ this.props.randomRecipeActions.randomRecipe }>
+            <Nav.Link onClick={ this.props.randomRecipeActions.randomRecipe }>
               {formatMessage(messages.randomRecipe)}
-            </NavItem>
+            </Nav.Link>
             {( this.props.user.id ?
                 <MenuMenuItem/> : null
             )}

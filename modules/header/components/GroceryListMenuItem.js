@@ -1,6 +1,6 @@
 import React from 'react'
 import { injectIntl, defineMessages } from 'react-intl';
-import { NavDropdown, MenuItem } from 'react-bootstrap'
+import { NavDropdown, NavItem } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
 class GroceryListMenuItemBase extends React.Component {
@@ -17,7 +17,7 @@ class GroceryListMenuItemBase extends React.Component {
     let lists = this.props.data.map((list) => {
       return (
         <LinkContainer to={"/list/" + list.slug} key={ list.id }>
-          <MenuItem>{ list.title }</MenuItem>
+          <NavDropdown.Item>{ list.title }</NavDropdown.Item>
         </LinkContainer>
       )
     });
@@ -27,9 +27,9 @@ class GroceryListMenuItemBase extends React.Component {
                    title={ formatMessage(messages.grocery_list) }
                    id="basic-nav-dropdown">
         { lists }
-        {( this.props.data.length > 0 ? <MenuItem divider /> : null )}
+        {( this.props.data.length > 0 ? <NavItem divider /> : null )}
         <LinkContainer exact={ true } to="/list">
-          <MenuItem>{ formatMessage(messages.grocery_list) }</MenuItem>
+          <NavDropdown.Item>{ formatMessage(messages.grocery_list) }</NavDropdown.Item>
         </LinkContainer>
       </NavDropdown>
 

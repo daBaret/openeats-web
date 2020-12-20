@@ -1,6 +1,6 @@
 import React from 'react'
 import { injectIntl, defineMessages } from 'react-intl';
-import { MenuItem } from 'react-bootstrap'
+import { Nav } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
 class CreateRecipeMenuItemBase extends React.Component {
@@ -16,7 +16,7 @@ class CreateRecipeMenuItemBase extends React.Component {
 
     return (
       <LinkContainer to="/recipe/create">
-        <MenuItem>{ formatMessage(messages.create_recipe) }</MenuItem>
+        <Nav.Link>{ formatMessage(messages.create_recipe) }</Nav.Link>
       </LinkContainer>
     )
   }

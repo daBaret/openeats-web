@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Spinner from 'react-spinkit';
-import { DropdownButton, MenuItem } from 'react-bootstrap'
+import { DropdownButton, Dropdown } from 'react-bootstrap'
 import {
     injectIntl,
     defineMessages,
@@ -32,12 +32,12 @@ const IngredientButtons = ({ lists, listStatus, bulkAdd, checkAll, unCheckAll, i
   if (lists) {
     listTitles = lists.map(list => {
       return (
-        <MenuItem
+        <Dropdown.Item
             key={ list.id }
             eventKey={ list.id }
             onClick={ bulkAdd.bind(this, list.id) }>
           { list.title }
-        </MenuItem>
+        </Dropdown.Item>
       )
     });
   }

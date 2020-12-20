@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { IntlProvider, addLocaleData } from 'react-intl'
 import { Router, Route, Switch, Redirect } from 'react-router-dom'
@@ -32,10 +32,11 @@ import es from 'react-intl/locale-data/es';
 import de from 'react-intl/locale-data/de';
 import fr from 'react-intl/locale-data/fr';
 addLocaleData([...en, ...es, ...de, ...fr]);
-const messages = require('./locale/'+process.env.NODE_LOCALE+'.json');
+const messages = require('./locale/en.json');
 
 // Load in the base CSS
-require("../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss");
+//require("../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss");
+require("../node_modules/bootstrap/dist/css/bootstrap.css")
 require("./base/css/core.scss");
 require("./base/css/print.scss");
 
@@ -76,7 +77,7 @@ const main = (
 );
 
 const entryPoint = () => {
-  render(main, document.getElementById('app'));
+  ReactDOM.render(main, document.getElementById('app'));
   // registerServiceWorker();
 };
 
